@@ -9,6 +9,7 @@ namespace Acutis
     {
 
         string processedTargetFolder = @"C:\ACData\ACD";
+       
 
         public Acutis()
         {
@@ -30,7 +31,6 @@ namespace Acutis
         protected override void OnStop()
         {
             eventLog1.WriteEntry("Acutis Stopped.");
-
         }
 
         void RunProcessFile(string fileName)
@@ -71,7 +71,7 @@ namespace Acutis
             {
                
             }
-            Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData)
+            Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
 
             ProcessFile(OriginalFilesFolder, processedTargetFolder, Path.GetFileName(fullFileName));
           
@@ -133,7 +133,7 @@ namespace Acutis
             string lastLine = File.ReadLines(targetFilePath).Last(); // gets the last line from file.
 
             string[] dt2 = lastLine.Split(';');
-            lastLineDT = Convert.ToDateTime(dt2[0]);
+            DateTime lastLineDT = Convert.ToDateTime(dt2[0]);
            
         }
     }
